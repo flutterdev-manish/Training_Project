@@ -107,7 +107,6 @@ class _GridScreenState extends State<GridScreen> {
               child: Stack(
                 children: [
                   SizedBox(
-                    // height: screenHeight,
                     child: GridView.builder(
                         itemCount: productList.length,
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -129,7 +128,6 @@ class _GridScreenState extends State<GridScreen> {
                               blurRadius: 15,
                               offset: const Offset(5, 5),
                             ),
-                            // lighter shadow on the top left
                             const BoxShadow(
                               color: Colors.white,
                               blurRadius: 15,
@@ -137,8 +135,6 @@ class _GridScreenState extends State<GridScreen> {
                             ),
                           ],
                         ),
-                          // color: Colors.white,
-                          // elevation: 10,
                           child: Column(
                             children: [
                               Stack(
@@ -169,8 +165,8 @@ class _GridScreenState extends State<GridScreen> {
                                             isChange[index] = !isChange[index];
                                             Fluttertoast.showToast(
                                               gravity: ToastGravity.BOTTOM,
-                                              msg: isLiked==false? "Product liked successfully":"Product disliked successfully",
-                                              backgroundColor: isLiked==false?Colors.green:Colors.red,
+                                              msg: isChange[index]==true? "Product liked successfully":"Product disliked successfully",
+                                              backgroundColor: isChange[index]==true?Colors.green:Colors.red,
                                             );
                                           });
                                         },
