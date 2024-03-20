@@ -68,11 +68,11 @@ class _UserListScreenState extends State<UserListScreen> {
         children: [
       isLoading ==true
           ? const Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: CircularProgressIndicator(),
           )
          :
-      userList.length==0
+      userList.isEmpty
           ?
             Container(
               child: Text("No Data"),
@@ -87,63 +87,68 @@ class _UserListScreenState extends State<UserListScreen> {
                   : 4,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index){
-            return Card(
-              color: isChange[index]==true? Colors.deepOrangeAccent : Colors.black,
-              elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                   mainAxisAlignment: MainAxisAlignment.start,
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //SizedBox(width: 120,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
-                      child: Image.network(userList[index]["avatar"],height: 60,),
-                    ),
-                    const SizedBox(width: 15,),
-                     Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         Text(
-                             userList[index]["first_name"]+" "+userList[index]["last_name"],
-                           // seeMore==true
-                           //     ? index==5
-                           //     ? "Less"
-                           // : names[index]
-                           //     : index==3
-                           //     ? "More"
-                           //     // : index==5
-                           //     // ? "Less"
-                           //     : names[index].toString(),
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                    ),
-                         Text(
-                           userList[index]["email"],
-                           // seeMore==true
-                           //     ? index==5
-                           //     ? "Less"
-                           // : names[index]
-                           //     : index==3
-                           //     ? "More"
-                           //     // : index==5
-                           //     // ? "Less"
-                           //     : names[index].toString(),
-                           style: const TextStyle(
-                               color: Colors.white,
-                               fontSize: 16,
-                               fontWeight: FontWeight.w400),
-                         ),
-                       ],
-                     ),
-                  ],
+            return GestureDetector(
+              onTap: (){
+                print("Check 111 --> "+userList[index]["email"].toString());
+              },
+              child: Card(
+                color: isChange[index]==true? Colors.deepOrangeAccent : Colors.black,
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      //SizedBox(width: 120,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Image.network(userList[index]["avatar"],height: 60,),
+                      ),
+                      const SizedBox(width: 15,),
+                       Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           Text(
+                               userList[index]["first_name"]+" "+userList[index]["last_name"],
+                             // seeMore==true
+                             //     ? index==5
+                             //     ? "Less"
+                             // : names[index]
+                             //     : index==3
+                             //     ? "More"
+                             //     // : index==5
+                             //     // ? "Less"
+                             //     : names[index].toString(),
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                      ),
+                           Text(
+                             userList[index]["email"],
+                             // seeMore==true
+                             //     ? index==5
+                             //     ? "Less"
+                             // : names[index]
+                             //     : index==3
+                             //     ? "More"
+                             //     // : index==5
+                             //     // ? "Less"
+                             //     : names[index].toString(),
+                             style: const TextStyle(
+                                 color: Colors.white,
+                                 fontSize: 16,
+                                 fontWeight: FontWeight.w400),
+                           ),
+                         ],
+                       ),
+                    ],
+                  ),
+
                 ),
 
               ),
-
             );
           }),
 

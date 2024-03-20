@@ -81,29 +81,41 @@ class _LoginScreenState extends State<LoginScreen> {
   //      }
   //   });
   // }
+
   bool checkPassword(String pass){
     String _password = pass.trim();
-    if(_password.isEmpty){
-      setState(() {
-        password_strength = 0;
-      });
-    }else if(_password.length < 6 ){
-      setState(() {
-        password_strength = 1 / 3;
-      });
-    }else if(_password.length < 8){
-      setState(() {
-        password_strength = 2 / 3;
-      });
-    }else{
-      if(pass_valid.hasMatch(_password)){
+
+     if(pass_valid.hasMatch(_password)){
         setState(() {
           password_strength = 3 / 3;
         });
         return true;
       }
+    else if(RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])+').hasMatch(_password)){
+      setState(() {
+        password_strength = 2 / 3;
+      });
     }
+    else if(_password.length < 6 ){
+      setState(() {
+        password_strength = 1 / 3;
+      });
+    }
+    else if(_password.isEmpty){
+       setState(() {
+         password_strength = 0;
+       });
+     }
+
     return false;
+  }
+
+  @override
+  void initState() {
+    print("Check 111222333 --> ");
+    emailController.text = "abc@gmail.com";
+    passwordController.text = "12345678";
+    super.initState();
   }
 
   @override

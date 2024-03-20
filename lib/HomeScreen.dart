@@ -3,6 +3,7 @@ import 'package:project_01/GridScreen.dart';
 import 'package:project_01/Helper/Constants.dart';
 import 'package:project_01/ListScreen.dart';
 import 'package:project_01/LoginScreen.dart';
+import 'package:project_01/ProductScreen.dart';
 import 'package:project_01/UserListScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(height: 10,),
               Container(
-                height: 100,
+                height: 70,
                 width: 200,
                 decoration: BoxDecoration(
                     color: Colors.amber.shade900,
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               Container(
-                height: 100,
+                height: 80,
                 width: 200,
                 decoration: BoxDecoration(
                   color: Colors.amberAccent,
@@ -114,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const Icon(
                 Icons.home,
-                size: 100,
+                size: 50,
                 color: Colors.deepPurpleAccent,
               ),
               const SizedBox(
@@ -190,6 +191,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const SizedBox(height: 10,),
+
+              ElevatedButton(
+                onPressed: (){
+                  // print("onPressed ElevatedButton");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProductListScreen()));
+
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.purple),
+                  elevation: MaterialStateProperty.all(3),
+                ),
+                child: const Text("Product List",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 10,),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

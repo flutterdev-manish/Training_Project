@@ -45,67 +45,61 @@ class _ListScreenState extends State<ListScreen> {
       ),
       body: Column(
         children: [
-          Container(
-            // height: size.height*0.8,
-            // color: Colors.green,
-            child: ListView.builder(
-                itemCount: seeMore==true
-                    ? names.length
-                    : names.length<4
-                    ? names.length
-                    : 4,
-                shrinkWrap: true,
-                itemBuilder: (BuildContext context, int index){
-              return Card(
-                color: isChange[index]==true? Colors.deepOrangeAccent : Colors.lightGreen,
-                elevation: 5,
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                     // mainAxisAlignment: MainAxisAlignment.center,
-                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      //SizedBox(width: 120,),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 120.0),
-                        child: Icon(
-                          icon[index],
-                          size: 30,
-                        color: Colors.white,),
-                      ),
-                      const SizedBox(width: 10,),
-                       Text(
-                           names[index],
-                         // seeMore==true
-                         //     ? index==5
-                         //     ? "Less"
-                         // : names[index]
-                         //     : index==3
-                         //     ? "More"
-                         //     // : index==5
-                         //     // ? "Less"
-                         //     : names[index].toString(),
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+          ListView.builder(
+              itemCount: seeMore==true
+                  ? names.length
+                  : names.length<4
+                  ? names.length
+                  : 4,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index){
+            return Card(
+              color: isChange[index]==true? Colors.deepOrangeAccent : Colors.lightGreen,
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Row(
+                   // mainAxisAlignment: MainAxisAlignment.center,
+                   crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    //SizedBox(width: 120,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 120.0),
+                      child: Icon(
+                        icon[index],
+                        size: 30,
+                      color: Colors.white,),
+                    ),
+                    const SizedBox(width: 10,),
+                     Text(
+                         names[index],
+                       // seeMore==true
+                       //     ? index==5
+                       //     ? "Less"
+                       // : names[index]
+                       //     : index==3
+                       //     ? "More"
+                       //     // : index==5
+                       //     // ? "Less"
+                       //     : names[index].toString(),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-              );
-            }),
-          ),
-          names.length==0
+              ),
+            );
+          }),
+          names.isEmpty
           ?Container(
-            child: Text("No Data"),
+            child: const Text("No Data"),
           )
           :GestureDetector(
             onTap: (){
               setState(() {
-
                   seeMore = !seeMore;
-
                 // isSelected== index;
                 // isChange[index] = !isChange[index];
               });
@@ -138,7 +132,6 @@ class _ListScreenState extends State<ListScreen> {
                       //   : index==5
                       //   ? "Less"
                       //   : names[index].toString(),
-
                       seeMore==true
                           ? "Less"
                           : "More",
