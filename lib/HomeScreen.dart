@@ -178,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      backgroundColor: MaterialStateProperty.all(Colors.deepPurpleAccent),
                       elevation: MaterialStateProperty.all(3),
                     ),
                     child: const Text("User List",
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.purple),
+                  backgroundColor: MaterialStateProperty.all(Colors.deepOrangeAccent),
                   elevation: MaterialStateProperty.all(3),
                 ),
                 child: const Text("Product List",
@@ -223,8 +223,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.resolveWith<Color>(
                               (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.hovered))
+                            if (states.contains(MaterialState.hovered)) {
                               return Colors.green;
+                            }
                             return Colors
                                 .purpleAccent;
                           }),
@@ -244,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.pushNamed(context, '/grid');
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      backgroundColor: MaterialStateProperty.all(Colors.red[700]),
                       elevation: MaterialStateProperty.all(3),
                     ),
                     child: const Text("Grid Screen",

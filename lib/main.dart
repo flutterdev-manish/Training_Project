@@ -32,8 +32,7 @@ class MyApp extends StatelessWidget {
       // home: const ListScreen(),
       // home: const GridScreen(),
       // home: const ResponsiveUIScreen(),
-
-      initialRoute: '/list',
+      initialRoute: '/',
       routes: Routes().routes,
     );
   }
